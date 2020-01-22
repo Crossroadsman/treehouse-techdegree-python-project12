@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
+    'app.apps.AppConfig',
 ]
 
 MIDDLEWARE = [
@@ -152,7 +153,7 @@ STATIC_URL = '/static/'
 # Default: '/accounts/profile/'
 # The URL to redirect to after login when the login view gets no `next` parameter
 # Also accepts named URL patterns (e.g., `'project:main_page'`)
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'app:home'
 
 # LOGIN_REDIRECT_URL
 # https://docs.djangoproject.com/en/2.1/ref/settings/#logout-redirect-url
@@ -161,4 +162,4 @@ LOGIN_REDIRECT_URL = 'home'
 # `next_page` parameter. If `None`, no redirect is performed and the Logout 
 # view is rendered instead.
 # Also accepts named URL patterns
-LOGOUT_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'app:home'

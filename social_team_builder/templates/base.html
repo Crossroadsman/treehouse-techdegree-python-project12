@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title_tag %}Social Team Builder{% endblock %}</title>
+  </head>
+
+  <body>
+    {% comment %}
+      The section in the '.stbuser' div relates to the custom user and 
+      auth behaviour.
+
+      Note that even though we are using a custom user model, it gets passed
+      to the template as `user`. And we don't need to manually include `user`
+      in the context: it is automatically passed as part of the 
+      request(?) context
+    {% endcomment %}
+    <nav>
+      <div class="stbuser">
+        {% if user.is_authenticated %}
+          Hi {{ user.username }}
+          <p><a href="{% url 'logout' %}">log out</a></p>
+        {% else %} {# !user.is_authenticated #}
+          <p>You are not currently logged in</p>
+          <p><a href="{% url 'login' %}">log in</a> | 
+            <a href="{% url 'signup' %}">sign up</a>
+          </p>
+        {% endif %} {# user.is_authenticated #}
+      </div> <!-- end .stbuser -->
+    </nav>
+
+    {% block body_content %}
+      <h1>Social Team Builder</h1>
+      <p>Lorem ipsum etc.</p>
+    {% endblock body_content %}
+  </body>
+</html>

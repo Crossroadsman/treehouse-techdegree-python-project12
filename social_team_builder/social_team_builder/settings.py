@@ -10,6 +10,23 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+# Details of 4.1 from Custom User Model Implementation
+# (see users.models for full outline)
+#
+# - add the `users` app (passing the config model instead of the whole app)
+#   (for an explanation of this newer config model approach, see:
+#    https://stackoverflow.com/questions/34377237/
+#    confused-a-bit-about-django-installed-apps-naming-convention
+#   )
+# - add the `AUTH_USER_MODEL` setting to tell Django to use our model instead
+#   of `User`
+#
+# Details of 8 from Custom User Model Implementation
+#
+# - configure `TEMPLATES` to have a project-level templates directory
+# - set the redirect links for login and logout
+
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -37,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +72,9 @@ ROOT_URLCONF = 'social_team_builder.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,6 +100,7 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'users.STBUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -118,3 +139,26 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# LOGIN_URL is where `login_required` will redirect users that are not logged in
+# (it will also pass the current path as a query string `?next=/some/path`)
+# This can be specified here. Alternatively, it can be substituted with a path
+# as an arg to login_required() (e.g., `login_required(login_url='/accounts/login/`)
+# it accepts view function names and named URL patterns
+# if not specified, it defaults to `/accounts/login/`
+
+# LOGIN_REDIRECT_URL
+# https://docs.djangoproject.com/en/2.1/ref/settings/#login-redirect-url
+# Default: '/accounts/profile/'
+# The URL to redirect to after login when the login view gets no `next` parameter
+# Also accepts named URL patterns (e.g., `'project:main_page'`)
+LOGIN_REDIRECT_URL = 'home'
+
+# LOGIN_REDIRECT_URL
+# https://docs.djangoproject.com/en/2.1/ref/settings/#logout-redirect-url
+# Default: None
+# The URL to redirect to after logout (using LogoutView) when the view gets no 
+# `next_page` parameter. If `None`, no redirect is performed and the Logout 
+# view is rendered instead.
+# Also accepts named URL patterns
+LOGOUT_REDIRECT_URL = 'home'

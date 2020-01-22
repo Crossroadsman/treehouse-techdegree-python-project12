@@ -23,6 +23,25 @@ Requirements:
 - [ ] [As a user of the site, I should be able to specify the positions my project needs help in with a name, a description, and related skill][giss08]
 - [ ] [As a user of the site, I should be able to see all of the applicants for my project's positions][giss09]
 - [ ] [As a user of the site, I should be able to approve an applicant for a position in my project][giss10]
+- [ ] [As a user of the site, I should be able to reject an applicant for a position in my project][giss11]
+- [ ] [As a user of the site, I should get a notification if I've been rejected or approved for a position][giss12]
+- [ ] [As a user of the site, I should be able to search for projects based on words in their titles or descriptions][giss13]
+- [ ] [As a user of the site, I should be able to filter projects by the positions they need filled][giss14]
+- [ ] [As a user of the site, I should be able to apply for a position in a project][giss15]
+- [ ] [As a user of the site, I should be able to log out][giss16]
+- [ ] Extra Credit:
+  - [ ] [As a user of the site, I should get an email verification after sign up][giss17]
+  - [ ] [As a user of the site, a position should be marked as filled once I accept someone for it][giss18]
+  - [ ] [As a user of the site, I should filled positions should be hidden or marked as filled so I don't apply for them.][giss19]
+  - [ ] [As a user of the site, I should be able to use Markdown in the "about me" part of my profile][giss20]
+  - [ ] [As a user of the site, I should be able to list any skill on my profile, not just pre-selected ones][giss21]
+  - [ ] [As a user of the site, my profile should list projects I've been involved with][giss22]
+  - [ ] [As a user of the site, I should be able to use Markdown in my project description][giss23]
+  - [ ] [As a user of the site, I should be able to use Markdown in the position descriptions][giss24]
+  - [ ] [As a user of the site, I should be able to provide a listed length of involvement for a position (e.g. Designer: 10 hours/week)][giss25]
+  - [ ] [As a user of the site, I should be able to filter applicants by their status (approved, denied, undecided)][giss26]
+  - [ ] [As a user of the site, I should be able to approve or deny applicants directly from the list of applicants][giss27]
+  - [ ] [As a user of the site, I should be given a list of projects that need my skill set][giss28]
 
 
 
@@ -36,3 +55,21 @@ Requirements:
 [giss08]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/8
 [giss09]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/9
 [giss10]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/10
+[giss11]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/11
+[giss12]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/12
+[giss13]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/13
+[giss14]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/14
+[giss15]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/15
+[giss16]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/16
+[giss17]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/17
+[giss18]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/18
+[giss19]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/19
+[giss20]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/20
+[giss21]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/21
+[giss22]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/22
+[giss23]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/23
+[giss24]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/24
+[giss25]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/25
+[giss26]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/26
+[giss27]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/27
+[giss28]: https://github.com/Crossroadsman/treehouse-techdegree-python-project12/issues/28

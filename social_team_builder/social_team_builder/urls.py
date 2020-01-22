@@ -29,8 +29,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path, include
 
-from . import views
-
 
 # Notes on namespacing
 # --------------------
@@ -78,7 +76,10 @@ from . import views
 #    namespace.
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^$', views.home, name='home'),
+    #re_path(r'^$', views.home, name='home'),
     re_path(r'users/', include('users.urls')),
     re_path(r'users/', include('django.contrib.auth.urls')),
+
+    # Send everything else to 'app'
+    re_path(r'', include('app.urls', namespace='app')),
 ]

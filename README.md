@@ -11,7 +11,13 @@ Installation
 ------------
 
 TODO
+...
 
+Username | Password       | User Type
+---------|----------------|-----------
+`admin`  | `testpassword` | superuser
+
+...
 
 Usage
 -----

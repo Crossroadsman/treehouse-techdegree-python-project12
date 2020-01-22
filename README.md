@@ -1,7 +1,28 @@
-# treehouse-techdegree-python-project12
+Project 12: Social Team Builder
+===============================
+
+Requirements
+------------
+
+TODO
 
 
-Requirements:
+Installation
+------------
+
+TODO
+
+
+Usage
+-----
+
+TODO
+
+
+Project Status
+--------------
+
+### vs Specs from Project Instructions ###
 
 - [ ] [Use the supplied files as static assets and example templates for your web site][giss01]:
   - [ ] `applications.html` - The users who have asked to join the project
@@ -42,6 +63,12 @@ Requirements:
   - [ ] [As a user of the site, I should be able to filter applicants by their status (approved, denied, undecided)][giss26]
   - [ ] [As a user of the site, I should be able to approve or deny applicants directly from the list of applicants][giss27]
   - [ ] [As a user of the site, I should be given a list of projects that need my skill set][giss28]
+
+
+Testing
+-------
+
+TODO
 
 
 

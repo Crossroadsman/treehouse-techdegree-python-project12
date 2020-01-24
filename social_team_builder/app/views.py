@@ -6,4 +6,6 @@ def home(request):
 
 
 def applications(request):
-    return render(request, "app/applications.html")
+    template = 'app/applications.html'
+    context = {'selected': 'applications'}
+    return render(request, template, context)

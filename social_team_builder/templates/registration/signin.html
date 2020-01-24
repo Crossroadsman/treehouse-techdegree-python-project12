@@ -5,15 +5,15 @@
 	behaviour.
 {% endcomment %}
 
-{% block title_tag %}Log In{% endblock %}
+{% block title_tag %}Sign In{% endblock %}
 
-{% block body_content %}
+{% block page_content %}
   <div class="stbuser">
-    <h1>Log In</h1>
+    <h1>Sign In</h1>
     <form method="POST">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit">Log in</button>
+      <button type="submit">Sign in</button>
     </form>
   </div>
-{% endblock body_content%}
+{% endblock page_content%}

@@ -69,7 +69,7 @@
                 <li><a href="{% url 'logout' %}">log out</a></li>
               {% else %} {# !user.is_authenticated #}
                 <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                <li><a href="{% url 'login' %}">Sign In</a></li>
+                <li><a href="{% url 'signin' %}">Sign In</a></li>
               {% endif %} {# user.is_authenticated #}
             </ul>
           </nav>

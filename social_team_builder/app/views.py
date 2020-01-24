@@ -1,8 +1,10 @@
 from django.shortcuts import render
 
 
-def home(request):
-    return render(request, 'home.html')
+def index(request):
+    template = 'app/index.html'
+    context = {'selected': ''}
+    return render(request, template, context)
 
 
 def applications(request):

@@ -76,11 +76,11 @@ from django.urls import path, re_path, include
 #    namespace.
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #re_path(r'^$', views.home, name='home'),
     re_path(r'users/', include('users.urls')),
     re_path(r'users/', include('django.contrib.auth.urls')),
 
     re_path(r'accounts/', include('accounts.urls', namespace='accounts')),
+    re_path(r'projects/', include('projects.urls', namespace='projects')),
 
     # Send everything else to 'app'
     re_path(r'', include('app.urls', namespace='app')),

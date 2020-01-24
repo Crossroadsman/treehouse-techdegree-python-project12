@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+  <div class="circle--actions--bar">
+    <div class="bounds">
+      <div class="grid-100">
+        <a class="button" href="{% url 'projects:project_edit' %}">Edit Project</a>
+        <a class="button button-text" href="{% url 'app:index' %}">Delete Project</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="bounds circle--page circle--article">
+    <div class="grid-70">
+      {% block page_main_body %}
+      {% endblock page_main_body %}
+    </div> <!-- end .grid-70 -->
+
+    <div class="grid-25 grid-push-5">
+      {% block page_right_sidebar %}
+      {% endblock %}
+    </div> <!-- end .grid-25, .grid-push-5-->
+  
+  </div> <!-- end .bounds, .--page, .--article -->
+
+{% endblock page_content %}

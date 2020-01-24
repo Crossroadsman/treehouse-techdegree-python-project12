@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'app.apps.AppConfig',
     'accounts.apps.AccountsConfig',
+    'projects.apps.ProjectsConfig',
 ]
 
 MIDDLEWARE = [
@@ -153,13 +154,14 @@ STATICFILES_DIRS = [
 # as an arg to login_required() (e.g., `login_required(login_url='/accounts/login/`)
 # it accepts view function names and named URL patterns
 # if not specified, it defaults to `/accounts/login/`
+LOGIN_URL = 'signin'
 
 # LOGIN_REDIRECT_URL
 # https://docs.djangoproject.com/en/2.1/ref/settings/#login-redirect-url
 # Default: '/accounts/profile/'
 # The URL to redirect to after login when the login view gets no `next` parameter
 # Also accepts named URL patterns (e.g., `'project:main_page'`)
-LOGIN_REDIRECT_URL = 'app:home'
+LOGIN_REDIRECT_URL = 'app:index'
 
 # LOGIN_REDIRECT_URL
 # https://docs.djangoproject.com/en/2.1/ref/settings/#logout-redirect-url
@@ -168,4 +170,4 @@ LOGIN_REDIRECT_URL = 'app:home'
 # `next_page` parameter. If `None`, no redirect is performed and the Logout 
 # view is rendered instead.
 # Also accepts named URL patterns
-LOGOUT_REDIRECT_URL = 'app:home'
+LOGOUT_REDIRECT_URL = 'app:index'

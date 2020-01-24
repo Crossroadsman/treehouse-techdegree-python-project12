@@ -19,8 +19,9 @@ from django.urls import re_path
 from . import views
 
 
-app_name = 'app'
+app_name = 'projects'
 urlpatterns = [
-    re_path(r'^$', views.index, name='index'),
-    re_path(r'^applications', views.applications, name="applications"),
+    re_path(r'project$', views.project, name='project'),
+    re_path(r'project_edit$', views.project_edit, name='project_edit'),
+    re_path(r'project_new$', views.project_new, name='project_new'),
 ]

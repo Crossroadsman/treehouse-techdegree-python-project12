@@ -80,8 +80,8 @@
     <div class="circle--actions--bar">
       <nav class="bounds">
         <ul class="circle--pill--list">
-          <li><a class="selected" href="applications.html">Applications</a></li>
-          <li><a href="profile.html"></a>Profile</li>
+          <li><a {% if selected == 'applications' %}class="selected"{% endif %} href="{% url 'app:applications' %}">Applications</a></li>
+          <li><a {% if selected == 'profile' %}class="selected"{% endif %} href="{% url 'accounts:profile' %}">Profile</a></li>
         </ul>
       </nav>
     </div> <!-- end .--actions--bar -->

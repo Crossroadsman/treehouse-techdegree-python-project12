@@ -19,8 +19,7 @@ from django.urls import re_path
 from . import views
 
 
-app_name = 'app'
+app_name = 'accounts'
 urlpatterns = [
-    re_path(r'^$', views.home, name='home'),
-    re_path(r'^applications', views.applications, name="applications"),
+    re_path(r'profile$', views.profile, name='profile'),
 ]

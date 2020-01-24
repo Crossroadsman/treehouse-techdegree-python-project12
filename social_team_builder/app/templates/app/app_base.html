@@ -2,18 +2,41 @@
 
 {% block page_content %}
 
-  <div class="circle--page--header grid-100">
-    <h2>{% block page_header %}PAGE HEADER{% endblock %}</h2>
-    {% block page_header_nav %}{% endblock %}
-  </div>
+  <div class="circle--page--header circle--fluid">
+    <div class="circle--fluid--cell circle--fluid--primary">
+      <h2>{% block page_header %}PAGE HEADER{% endblock %}</h2>
+    </div>
+    
+    <div class="circle--fluid--cell circle--fluid--secondary">
+      <a class="button button-primary icon-on-left" href="{% url 'projects:project_new' %}">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 13 13" style="enable-background:new 0 0 13 13;" xml:space="preserve" class="add">
+          <polygon points="7,6 7,0 6,0 6,6 0,6 0,7 6,7 6,13 7,13 7,7 13,7 13,6 "/>
+        </svg>
+        New Project
+      </a>
+    </div> <!-- end .--fluid--cell, --fluid--secondary-->
+  </div> <!-- end .--page--header, --fluid -->
 
   <div class="grid-25">
-    {% block page_sidebar %}
-    {% endblock page_sidebar %}
+    <div class="circle--filter circle--secondary--module">
+      <h4>Project Needs</h4>
+      <ul class="circle--filter--list">
+        <li><a class="selected">All Needs</a></li>
+        <li><a>Android Developer</a></li>
+        <li><a>Designer</a></li>
+        <li><a>Java Developer</a></li>
+        <li><a>PHP Developer</a></li>
+        <li><a>Python Developer</a></li>
+        <li><a>Rails Deverloper</a></li>
+        <li><a>WordPress Developer</a></li>
+        <li><a>iOS Developer</a></li>
+      </ul>
+    </div> <!-- end .--filter, .--secondary--module -->
   </div> <!-- end .grid-25 -->
 
-   <div class="grid-70 grid-push-5">
-     {% block page_main_body %}
-     {% endblock page_main_body %}
+  <div class="grid-70 grid-push-5">
+    {% block page_main_body %}
+    {% endblock page_main_body %}
   </div> <!-- end .grid-70, .grid-push-5 -->
+   
 {% endblock page_content %}

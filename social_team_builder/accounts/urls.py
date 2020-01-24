@@ -22,4 +22,5 @@ from . import views
 app_name = 'accounts'
 urlpatterns = [
     re_path(r'profile$', views.profile, name='profile'),
+    re_path(r'profile_edit$', views.profile_edit, name='profile_edit'),
 ]

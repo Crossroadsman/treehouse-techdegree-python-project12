@@ -18,3 +18,9 @@ def profile(request):
     template = 'accounts/profile.html'
     context = {'selected': 'profile'}
     return render(request, template, context)
+
+
+def profile_edit(request):
+    template = 'accounts/profile_edit.html'
+    context = {'selected': 'profile'}
+    return render(request, template, context)

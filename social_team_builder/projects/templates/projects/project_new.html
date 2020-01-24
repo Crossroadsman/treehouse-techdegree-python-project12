@@ -1,0 +1,33 @@
+{% extends 'projects/projects_base.html' %}
+
+{% block page_main_body %}
+  <div class="circle--article--body">
+    <input type="text" class="circle--input--h1" placeholder="Project Title">
+    <textarea placeholder="Project description..."></textarea>
+  </div>
+
+  <div class="circle--project--positions">
+    <h2>Positions</h2>
+    <ul class="circle--group--list circle--clone--list">
+      <li>
+        <input type="text" class="circle--input--h3" placeholder="Position Title">
+        <textarea placeholder="Position description..."></textarea>
+        <a class="circle--clone--add">Add Position</a>
+        <a class="circle--clone--remove">Remove</a>
+      </li>
+    </ul>
+    <a class="button button-primary" href="{% url 'projects:project'">Save Project</a>
+  </div>
+{% endblock page_main_body %}
+
+{% block page_right_sidebar %}
+  <div class="circle--secondary--module">
+    <h3>Project Timeline</h3>
+    <textarea placeholder="Time estimate" class="circle--textarea--input"></textarea>
+  </div>
+  
+  <div class="circle--secondary--module">
+    <h3>Applicant Requirements</h3>
+    <textarea></textarea>
+  </div>
+{% endblock page_right_sidebar %}

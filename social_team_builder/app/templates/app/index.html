@@ -2,9 +2,33 @@
 
 {% block title_tag %}{{ block.super }}{% endblock %}
 
-{% block page_content %}
-	<div class="jumbotron">
-		<h1>Social Team Builder</h1>
-		<p>Stuff goes here</p>
-	</div>
-{% endblock page_content %}
+{% block page_header %}Projects{% endblock %}
+
+{% block page_main_body %}
+	<table class="u-full-width circle--table">
+		<thead>
+			<tr>
+				<th>Project Title</th>
+				<th class="circle--cell--right">Project Needs</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="clickable-row" data-href="project.html">
+				<td>
+					<h3>Invoice Delivery Tool</h3>
+				</td>
+				<td class="circle--cell--right">
+					<span class="secondary-label">Rails Developer</span>
+				</td>
+			</tr>
+			<tr class="clickable-row" data-href="project.html">
+				<td>
+					<h3>Twitter Client</h3>
+				</td>
+				<td class="circle--cell--right">
+					<span class="secondary-label">Designer</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+{% endblock page_main_body %}

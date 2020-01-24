@@ -8,5 +8,6 @@ from django.urls import re_path
 from . import views
 
 urlpatterns = [
-    re_path(r'signup/', views.SignUp.as_view(), name="signup"),
+    re_path(r'signup/', views.SignUpView.as_view(), name="signup"),
+    re_path(r'signin/', views.SignInView.as_view(), name="signin"),
 ]

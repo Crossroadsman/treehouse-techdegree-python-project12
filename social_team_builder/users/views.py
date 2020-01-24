@@ -5,11 +5,16 @@
 
 from django.urls import reverse_lazy
 from django.views import generic
+from django.contrib.auth.views import LoginView
 
 from users.forms import STBUserCreationForm
 
 
-class SignUp(generic.CreateView):
+class SignUpView(generic.CreateView):
     form_class = STBUserCreationForm
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('signin')
     template_name = 'signup.html'
+
+
+class SignInView(LoginView):
+    template_name = 'registration/signin.html'

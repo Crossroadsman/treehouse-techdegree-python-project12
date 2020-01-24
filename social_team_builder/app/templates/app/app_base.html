@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+  <div class="circle--page--header grid-100">
+    <h2>{% block page_header %}PAGE HEADER{% endblock %}</h2>
+  </div>
+
+  <div class="grid-25">
+    {% block page_sidebar %}
+    {% endblock page_sidebar %}
+  </div> <!-- end .grid-25 -->
+
+   <div class="grid-70 grid-push-5">
+     {% block page_main_body %}
+     {% endblock page_main_body %}
+  </div> <!-- end .grid-70, .grid-push-5 -->
+{% endblock page_content %}

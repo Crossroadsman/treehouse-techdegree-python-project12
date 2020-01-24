@@ -34,4 +34,5 @@ from . import views
 app_name = 'app'
 urlpatterns = [
     re_path(r'^$', views.home, name='home'),
+    re_path(r'^applications', views.applications, name="applications"),
 ]

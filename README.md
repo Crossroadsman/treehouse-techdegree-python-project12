@@ -16,6 +16,7 @@ TODO
 Username | Password       | User Type
 ---------|----------------|-----------
 `admin`  | `testpassword` | superuser
+`alice`  | `testpassword` | regular user
 
 ...
 

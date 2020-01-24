@@ -31,6 +31,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATICFILES_DIR = os.path.join(BASE_DIR, 'static')
 
 
 # Quick-start development settings - unsuitable for production
@@ -55,6 +56,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
+    'app.apps.AppConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -138,7 +141,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    STATICFILES_DIR,
+]
 
 # LOGIN_URL is where `login_required` will redirect users that are not logged in
 # (it will also pass the current path as a query string `?next=/some/path`)
@@ -152,7 +159,7 @@ STATIC_URL = '/static/'
 # Default: '/accounts/profile/'
 # The URL to redirect to after login when the login view gets no `next` parameter
 # Also accepts named URL patterns (e.g., `'project:main_page'`)
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'app:home'
 
 # LOGIN_REDIRECT_URL
 # https://docs.djangoproject.com/en/2.1/ref/settings/#logout-redirect-url
@@ -161,4 +168,4 @@ LOGIN_REDIRECT_URL = 'home'
 # `next_page` parameter. If `None`, no redirect is performed and the Logout 
 # view is rendered instead.
 # Also accepts named URL patterns
-LOGOUT_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'app:home'

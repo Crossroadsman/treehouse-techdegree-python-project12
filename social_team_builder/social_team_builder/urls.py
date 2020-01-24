@@ -80,6 +80,7 @@ urlpatterns = [
     re_path(r'users/', include('django.contrib.auth.urls')),
 
     re_path(r'accounts/', include('accounts.urls', namespace='accounts')),
+    re_path(r'applications/', include('applications.urls', namespace='applications')),
     re_path(r'projects/', include('projects.urls', namespace='projects')),
 
     # Send everything else to 'app'

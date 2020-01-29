@@ -82,6 +82,7 @@ urlpatterns = [
     re_path(r'accounts/', include('accounts.urls', namespace='accounts')),
     re_path(r'applications/', include('applications.urls', namespace='applications')),
     re_path(r'projects/', include('projects.urls', namespace='projects')),
+    re_path(r'search/', include('search.urls', namespace='search')),
 
     # Send everything else to 'app'
     re_path(r'', include('app.urls', namespace='app')),

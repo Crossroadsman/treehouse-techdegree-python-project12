@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',  # Extended User Attributes (profile etc)
     'projects.apps.ProjectsConfig',  # Projects
     'applications.apps.ApplicationsConfig',  # Applications
+    'search.apps.SearchConfig',  # Search
 ]
 
 MIDDLEWARE = [

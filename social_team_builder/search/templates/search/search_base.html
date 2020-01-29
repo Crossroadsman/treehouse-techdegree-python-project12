@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 
+{% block title_tag %}{{ block.super }} &bull; Search{% endblock %}
+
 {% block action_bar %}{% endblock %}
 
 {% block page_content %}
 
   <div class="circle--page--header circle--fluid">
     <div class="circle--fluid--cell circle--fluid--primary">
-      <h2>{% block page_header %}PAGE HEADER{% endblock %}</h2>
+      {% block page_search_header %}
+      {% endblock %}
     </div>
-    
     <div class="circle--fluid--cell circle--fluid--secondary">
       <a class="button button-primary icon-on-left" href="{% url 'projects:project_new' %}">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 13 13" style="enable-background:new 0 0 13 13;" xml:space="preserve" class="add">
@@ -16,8 +18,8 @@
         </svg>
         New Project
       </a>
-    </div> <!-- end .--fluid--cell, --fluid--secondary-->
-  </div> <!-- end .--page--header, --fluid -->
+    </div>
+  </div>
 
   <div class="grid-25">
     <div class="circle--filter circle--secondary--module">
@@ -33,12 +35,12 @@
         <li><a>WordPress Developer</a></li>
         <li><a>iOS Developer</a></li>
       </ul>
-    </div> <!-- end .--filter, .--secondary--module -->
-  </div> <!-- end .grid-25 -->
+    </div>
+  </div>
 
   <div class="grid-70 grid-push-5">
-    {% block page_main_body %}
-    {% endblock page_main_body %}
-  </div> <!-- end .grid-70, .grid-push-5 -->
-   
+    {% block page_search_results %}
+    {% endblock %}
+  </div>
+
 {% endblock page_content %}

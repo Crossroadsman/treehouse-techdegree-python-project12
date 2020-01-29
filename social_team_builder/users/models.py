@@ -34,6 +34,14 @@
 # 11. Create views:
 #    11.1 `users/views.py`
 #
+# To customise the user model to use email instead of username, before
+# step 5:
+#
+# 4.5 Create a custom UserManager in `managers.py`
+# 4.6 Update the model to reference the custom manager
+# 4.7 Tweak the Admin to reflect the use of email instead of username
+# 4.8 Edit the user create/change forms to reflect use of email
+#
 #
 # Referencing the Custom User Model
 # ---------------------------------
@@ -57,11 +65,34 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from .managers import STBUserManager
+
 
 class STBUser(AbstractUser):
-    pass
 
-    """
+    # override username to eliminate it as a field
+    username = None
+    
+    # override email to make it required and unique
+    email = models.EmailField(
+        verbose_name='Email Address',
+        max_length=255,
+        unique=True
+    )
+
+    # the following is an attribute not a field
+    objects = STBUserManager()
+    
+    # the following attribute specifies which of our fields should be the
+    # unique identifier for users. In this case, based on our selections above
+    # either `email` or `username` could be valid choices for this attribute
+    USERNAME_FIELD = 'email'
+
+    # the following is a list of fields that are passed through to the
+    # create_superuser method (other than USERNAME_FIELD and password)
+    # when using (e.g.) `python3 manage.py createsuperuser`
+    REQUIRED_FIELDS = []
+    
+    
     def __str__(self):
         return self.email
-    """

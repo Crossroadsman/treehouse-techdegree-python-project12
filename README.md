@@ -40,7 +40,7 @@ Project Status
   - [x] `index.html` - The home page
   - [x] `profile_edit.html` - The form for editing your [a user's] profile
   - [x] `project_edit.html` - The form for editing a project
-  - [ ] `search.html` - Search results
+  - [x] `search.html` - Search results
   - [ ] `signup.html` - The sign up page
 - [ ] [As a user of the site, I should be able to sign up for an account][giss02]
 - [ ] [As a user of the site, I should be able to log into my account][giss03]

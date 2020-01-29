@@ -88,11 +88,13 @@
       </div> <!-- end .--actions--bar -->
     {% endblock action_bar %}
 
-    <div class="bounds circle--page">
-      {% block page_content %}
-        <h1>Social Team Builder</h1>
-        <p>Lorem ipsum etc.</p>
-      {% endblock page_content %}
-    </div> <!-- end .bounds, .--page-->
+    {% block page_structure %}
+      <div class="bounds circle--page">
+        {% block page_content %}
+          <h1>Social Team Builder</h1>
+          <p>Lorem ipsum etc.</p>
+        {% endblock page_content %}
+      </div> <!-- end .bounds, .--page-->
+    {% endblock page_structure %}
   </body>
 </html>

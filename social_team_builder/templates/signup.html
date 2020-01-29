@@ -5,15 +5,18 @@
 	behaviour.
 {% endcomment %}
 
-{% block title_tag %}Sign Up{% endblock %}
+{% block action_bar %}{% endblock %}
 
-{% block page_content %}
-  <div class="stbuser">
-    <h1>Sign Up</h1>
-    <form method="POST">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Sign Up</button>
-    </form>
-  </div>
-{% endblock page_content%}
+{% block page_structure %}
+  <div class="bounds">
+    <div class="stbuser grid-30 centered">
+      <h2>Sign Up</h2>
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button-primary" type="submit">Sign Up</button>
+        <a class="button" href="{% url 'signin' %}">Sign In</a>
+      </form>
+    </div> <!-- end .stbuser, .grid-30, .centered -->
+  </div> <!-- end .bounds -->
+{% endblock page_structure %}

@@ -13,10 +13,10 @@ Installation
 TODO
 ...
 
-Username | Password       | User Type
----------|----------------|-----------
-`admin`  | `testpassword` | superuser
-`alice`  | `testpassword` | regular user
+Email                | Password       | User Type
+---------------------|----------------|-----------
+`admin@example.com`  | `testpassword` | superuser
+`alice@example.com`  | `testpassword` | regular user
 
 ...
 

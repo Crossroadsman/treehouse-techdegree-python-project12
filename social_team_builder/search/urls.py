@@ -21,5 +21,5 @@ from . import views
 
 app_name = 'search'
 urlpatterns = [
-    re_path(r'$', views.search, name='search'),
+    re_path(r'^$', views.search, name='search'),
 ]

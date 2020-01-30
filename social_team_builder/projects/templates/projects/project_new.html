@@ -1,5 +1,13 @@
 {% extends 'projects/projects_base.html' %}
 
+{% block action_bar_primary %}
+  <a class="button button-primary" href="{% url 'projects:project_edit' %}">Save Project</a>
+{% endblock %}
+
+{% block action_bar_secondary %}
+  <a class="button button-text" href="{% url 'app:index' %}">Discard</a>
+{% endblock %}
+
 {% block page_main_body %}
   <div class="circle--article--body">
     <input type="text" class="circle--input--h1" placeholder="Project Title">

@@ -2,25 +2,20 @@
 
 {% block title_tag %}Circle{% endblock %}
 
-{% block page_header %}Profile{% endblock %}
+{% block page_header_primary %}Profile{% endblock page_header_primary %}
 
-{% block page_header_nav %}
-  <div class="circle--fluid--cell circle--fluid--secondary">
-    <a class="button button-primary icon-on-left" href="{% url 'accounts:profile' %}">
-      Save Changes
-    </a>
-  </div>
-{% endblock page_header_nav %}
-
+{% block page_header_secondary %}
+  <a class="button button-primary icon-on-left" href="{% url 'accounts:profile' %}">
+    Save Changes
+  </a>
+{% endblock page_header_secondary %}
 
 {% block page_main_body %}
-  <input type="text" calue="Wendy McElroy" placeholder="Full Name" class="circle--input--h1">
+  <input type="text" value="Wendy McElroy" placeholder="Full Name" class="circle--input--h1">
   <div class="circle--article--body">
-    <textarea placeholder="Tell us about yourself...">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <textarea placeholder="Tell us about yourself...">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </textarea>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
   </div> <!-- end .--article--body -->
   
   <h2>Past Projects</h2>

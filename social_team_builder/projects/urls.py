@@ -21,7 +21,7 @@ from . import views
 
 app_name = 'projects'
 urlpatterns = [
-    re_path(r'project$', views.project, name='project'),
-    re_path(r'project_edit$', views.project_edit, name='project_edit'),
-    re_path(r'project_new$', views.project_new, name='project_new'),
+    re_path(r'^$', views.project, name='project'),
+    re_path(r'edit$', views.project_edit, name='project_edit'),
+    re_path(r'new$', views.project_new, name='project_new'),
 ]

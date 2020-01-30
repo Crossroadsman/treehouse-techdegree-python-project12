@@ -24,5 +24,17 @@ class STBUserAdmin(UserAdmin):
     search_fields = ('email',)
     ordering = ('email',)
 
+    # 4.7 Override the fieldsets to remove reference to `username`
+    # (the `fieldsets` is for viewing/editing a user, the
+    #  `add_fieldsets` is for ading a new user from the admin panel)
+    fieldsets = (
+        (None, {'fields': ('email', 'password',)}),
+        ('Permissions', {'fields': ('is_staff', 'is_superuser',)}),
+    )
+    add_fieldsets = (
+        (None, {'classes': ('wide',),
+                'fields': ('email', 'password1', 'password2',)}),
+    )
+
 
 admin.site.register(STBUser, STBUserAdmin)

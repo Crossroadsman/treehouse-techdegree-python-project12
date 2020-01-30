@@ -13,7 +13,40 @@
       <h2>Sign In</h2>
       <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+
+        {% if form.non_field_errors %}
+          <ul>
+            {% for error in form.non_field_errors %}
+              <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        <div class="formfields">
+          {# fields are `username` and `password` #}
+          
+          {% for field in form %}
+            {% if field.errors %}
+              {{ field.errors }}
+            {% endif %}
+          {% endfor %}
+          <input type="email" 
+                 id="{{ form.username.id_for_label }}"
+                 name="{{ form.username.name }}"
+                 {% if field.value %}
+                  value="{{ form.username.value }}"
+                 {% endif %}
+                 placeholder="Email Address"
+          />
+          <input type="password" 
+                 id="{{ form.password.id_for_label }}"
+                 name="{{ form.password.name }}"
+                 {% if field.value %}
+                  value="{{ form.password.value }}"
+                 {% endif %}
+                 placeholder="Password"
+          />
+          
+        </div>
         <button class="button-primary" type="submit">Sign in</button>
         <a class="button" href="{% url 'signup' %}">Sign Up</a>
       </form>

@@ -172,4 +172,4 @@ LOGIN_REDIRECT_URL = 'app:index'
 # `next_page` parameter. If `None`, no redirect is performed and the Logout 
 # view is rendered instead.
 # Also accepts named URL patterns
-LOGOUT_REDIRECT_URL = 'app:index'
+LOGOUT_REDIRECT_URL = 'signin'

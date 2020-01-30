@@ -21,5 +21,5 @@ from . import views
 
 app_name = 'applications'
 urlpatterns = [
-    re_path(r'^applications', views.applications, name="applications"),
+    re_path(r'^$', views.applications, name="applications"),
 ]

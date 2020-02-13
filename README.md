@@ -18,6 +18,7 @@ Email                | Password       | User Type
 `admin@example.com`  | `Testpassword` | superuser
 `alice@example.com`  | `Testpassword` | regular user
 `bob@example.com`    | `Testpassword` | regular user
+`wendymcelroy@test.com` | `Testpassword` | regular user
 
 ...
 

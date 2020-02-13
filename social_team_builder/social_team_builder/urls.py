@@ -25,7 +25,8 @@ Including another URLconf
 # routes before the builtins. In this case, Django will check `users.urls`
 # for url matches, only if it fails to find a match will it fall back
 # to `django.contrib.auth.urls`
-
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, re_path, include
 
@@ -87,3 +88,5 @@ urlpatterns = [
     # Send everything else to 'app'
     re_path(r'', include('app.urls', namespace='app')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

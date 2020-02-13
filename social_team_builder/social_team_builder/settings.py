@@ -150,6 +150,10 @@ STATICFILES_DIRS = [
     STATICFILES_DIR,
 ]
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 # LOGIN_URL is where `login_required` will redirect users that are not logged in
 # (it will also pass the current path as a query string `?next=/some/path`)
 # This can be specified here. Alternatively, it can be substituted with a path

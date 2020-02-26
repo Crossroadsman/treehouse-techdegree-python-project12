@@ -26,7 +26,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 # - configure `TEMPLATES` to have a project-level templates directory
 # - set the redirect links for login and logout
 
-
+import logging
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -42,6 +42,19 @@ SECRET_KEY = 't-4nv=f7py9u(9yuz96vzq)_ng@v9%$kvvw97j3cs!ppo02q=k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+# LOGGING
+LOGFORMAT = '%(asctime)s | %(levelname)s | %(message)s'
+if DEBUG:
+    LOGLEVEL = logging.DEBUG
+    LOGTARGET = {}  # Direct logging to console while debugging
+else:
+    LOGLEVEL = logging.INFO
+    LOGTARGET = {
+        'filename': 'social_team_builder.log',
+        'filemode': 'w'
+    }
+logging.basicConfig(level=LOGLEVEL, **LOGTARGET, format=LOGFORMAT)
 
 ALLOWED_HOSTS = []
 

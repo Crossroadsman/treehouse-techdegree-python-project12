@@ -5,6 +5,18 @@ from accounts.models import UserProfile, Skill
 
 class UserProfileForm(forms.ModelForm):
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['name'].widget.attrs.update({
+            'placeholder': 'Full Name',
+            'class': 'circle--input--h1',
+        })
+
+        self.fields['bio'].widget.attrs.update({
+            'placeholder': 'Tell us about yourself...',
+        })
+
     class Meta:
         model = UserProfile
         fields = (

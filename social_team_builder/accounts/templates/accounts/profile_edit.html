@@ -71,27 +71,30 @@
 {% endblock page_main_body %}
 
 {% block page_right_sidebar_avatar_input %}
-  <form id="aform"
+  <div class="circle--primary--avatar">
+    <form id="aform"
         method="POST" 
         action="{% url 'accounts:avatar_add' %}"
         enctype="multipart/form-data">
     
-    {% csrf_token %}
+      {% csrf_token %}
 
-    {{ a_form.non_field_errors }}
+      {{ a_form.non_field_errors }}
 
-    {# if we have any hidden forms #}
-    {% for hf in a_form.hidden_fields %}
-      {{ hf.errors }}
-      {{ hf }}
-    {% endfor %}
+      {# if we have any hidden forms #}
+      {% for hf in a_form.hidden_fields %}
+        {{ hf.errors }}
+        {{ hf }}
+      {% endfor %}
 
-    <button class="button" type="submit">
-      Upload Photo
-      <input type="file" name="avatar" accept="image/*" id="id_avatar" onchange="form.submit()">
-    </button>
+      <button class="button" type="submit">
+        Upload Photo
+        <input type="file" name="avatar" accept="image/*" id="id_avatar" onchange="form.submit()">
+      </button>
 
-  </form>
+    </form>
+  </div>
+  
 {% endblock page_right_sidebar_avatar_input %}
 
 {% block page_right_sidebar %}

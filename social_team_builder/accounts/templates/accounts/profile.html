@@ -12,10 +12,12 @@
 
 
 {% block page_main_body %}
-  <h1>Wendy McElroy</h1>
+  <h1>
+    {# We only render this view if a profile exists #}
+    {{ profile }}
+  </h1>
   <div class="circle--article--body">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    {{ profile.bio }}
   </div>
 
   <h2>Past Projects</h2>
@@ -48,16 +50,21 @@
   
 {% endblock page_main_body %}
 
+{% block page_right_sidebar_avatar_input %}
+  {% if profile.avatar %}
+    <img src="{{ profile.avatar.url }}" width=200>
+  {% else %}
+    <img src="" width=200>
+  {% endif %}
+{% endblock page_right_sidebar_avatar_input %}
 
 {% block page_right_sidebar %}
   <div class="circle--secondary--module">
     <h4>My Skills</h4>
     <ul class="unloaded">
-      <li>Skill 1</li>
-      <li>Skill 2</li>
-      <li>Skill 3</li>
-      <li>Skill 4</li>
-      <li>Skill 5</li>
+      {% for skill in profile.skill_set.all %}
+        <li>{{ skill }}</li>
+      {% endfor %}
     </ul>
   </div> <!-- end .--secondary--module -->
 

@@ -95,4 +95,9 @@ class STBUser(AbstractUser):
     
     
     def __str__(self):
+        # Note that AbstractUser has built-in name fields but
+        # we want the User objet to only be responsible for
+        # uniquely identifying a particular user, all user-facing
+        # metadata (e.g., name) should be part of the UserProfile
+        # object.
         return self.email

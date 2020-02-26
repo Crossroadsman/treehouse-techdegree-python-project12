@@ -5,18 +5,40 @@
 {% block page_header_primary %}Profile{% endblock page_header_primary %}
 
 {% block page_header_secondary %}
-  <a class="button button-primary icon-on-left" href="{% url 'accounts:profile' %}">
+<button class="button button-primary icon-on-left" type="submit" form="upform">Save Changes</button>
+  <!-- <input id="submit-upform" class="button button-primary icon-on-left" type="submit" form="upform"> -->
+  <!-- <label for="submit-upform">Submit</label> -->
+  
+  <!-- <a class="button button-primary icon-on-left" href="{% url 'accounts:profile' %}">
     Save Changes
-  </a>
+  </a> -->
 {% endblock page_header_secondary %}
 
 {% block page_main_body %}
-  <input type="text" value="Wendy McElroy" placeholder="Full Name" class="circle--input--h1">
-  <div class="circle--article--body">
-    <textarea placeholder="Tell us about yourself...">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  <form id="upform" method="POST" action="{% url 'accounts:profile_edit' %}">
+    {% csrf_token %}
 
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
-  </div> <!-- end .--article--body -->
+    {{ up_form.non_field_errors }}
+
+    {# if we have any hidden forms #}
+    {% for hf in up_form.hidden_fields %}
+      {{ hf.errors }}
+      {{ hf }}
+    {% endfor %}
+
+    {% for field in up_form.visible_fields %}
+      {{ field.errors }}
+      {{ field }}
+      {{ field.help_text }}
+    {% endfor %}
+
+    <!-- <input id="id_name" type="text" value="Wendy McElroy" placeholder="Full Name" class="circle--input--h1">
+    <div class="circle--article--body">
+      <textarea placeholder="Tell us about yourself...">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+    </div> --> <!-- end .--article--body -->
+  </form>
   
   <h2>Past Projects</h2>
   <table class="u-full-width circle--table">
@@ -45,14 +67,34 @@
       </tr>
     </tbody>
   </table>
-  
+
 {% endblock page_main_body %}
 
 {% block page_right_sidebar_avatar_input %}
-  <a class="button">
-    Upload Photo
-    <input type="file">
-  </a>
+  <div class="circle--primary--avatar">
+    <form id="aform"
+        method="POST" 
+        action="{% url 'accounts:avatar_add' %}"
+        enctype="multipart/form-data">
+    
+      {% csrf_token %}
+
+      {{ a_form.non_field_errors }}
+
+      {# if we have any hidden forms #}
+      {% for hf in a_form.hidden_fields %}
+        {{ hf.errors }}
+        {{ hf }}
+      {% endfor %}
+
+      <button class="button" type="submit">
+        Upload Photo
+        <input type="file" name="avatar" accept="image/*" id="id_avatar" onchange="form.submit()">
+      </button>
+
+    </form>
+  </div>
+  
 {% endblock page_right_sidebar_avatar_input %}
 
 {% block page_right_sidebar %}

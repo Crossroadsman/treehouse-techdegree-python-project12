@@ -42,14 +42,9 @@ def profile_edit(request):
             request.POST,
             instance=up_instance
         )
-        a_form = AvatarForm(
-            request.FILES,
-            instance=up_instance
-        )
-        if all([up_form.is_valid(),
-                a_form.is_valid()]):
+        if up_form.is_valid():
 
-            logging.debug('form(s) passed validation')
+            logging.debug('form passed validation')
             
             # User Profile
             logging.debug('saving form (commit=False)')
@@ -64,12 +59,6 @@ def profile_edit(request):
             # SET profile.user TO request.user INSTEAD OF user?
             logging.debug('saving up form (commit=True)')
             profile.save()
-
-            # Avatar
-            logging.debug('avatar form')
-            profile = a_form.save(commit=False)
-            profile.user = user
-            profile.save()
             
             logging.debug('redirecting')
             return redirect(reverse('accounts:profile'))
@@ -77,7 +66,9 @@ def profile_edit(request):
         else:
             # CONSIDER DELETING THIS BLOCK ONCE EVERYTHING WORKS
             logging.debug(up_form.errors)  # includeds non-field errors
-            logging.debug(a_form.errors)
+
+            # will need this when we re-render the view
+            a_form = AvatarForm(instance=up_instance)
 
     else:  # GET
         logging.debug('method is GET')
@@ -91,3 +82,50 @@ def profile_edit(request):
         'a_form': a_form,
     }
     return render(request, template, context)
+
+
+def avatar_add(request):
+    user = get_object_or_404(User, pk=request.user.pk)
+
+    logging.debug(f'Loaded user: {user} from request')
+
+    if hasattr(user, 'userprofile'):
+        logging.debug(f'{user} has an existing userprofile')
+        up_instance = user.userprofile
+    else:
+        logging.debug(f'{user} DOES NOT have an existing userprofile')
+        up_instance = None
+
+    if request.method == 'POST':
+        logging.debug('method is POST')
+        a_form = AvatarForm(
+            request.FILES,
+            instance=up_instance
+        )
+        if a_form.is_valid():
+
+            logging.debug('form passed validation')
+            
+            logging.debug('saving form (commit=False)')
+            profile = a_form.save(commit=False)
+            logging.debug('linking user to profile')
+            profile.user = user
+
+            logging.debug(f'{profile.user}')
+
+            logging.debug('saving up form (commit=True)')
+            profile.save()
+            
+            logging.debug('redirecting')
+            return redirect(reverse('accounts:profile'))
+
+        else:
+            # CONSIDER DELETING THIS BLOCK ONCE EVERYTHING WORKS
+            logging.debug(a_form.errors)
+            return redirect(reverse('accounts:profile_edit'))
+
+    else:  # GET
+        logging.debug('method is GET')
+    
+    return redirect(reverse('accounts:profile'))
+

@@ -15,7 +15,7 @@
 {% endblock page_header_secondary %}
 
 {% block page_main_body %}
-  <form id="upform" method="POST">
+  <form id="upform" method="POST" action="{% url 'accounts:profile_edit' %}">
     {% csrf_token %}
 
     {{ up_form.non_field_errors }}
@@ -78,6 +78,7 @@
 {% endblock page_main_body %}
 
 {% block page_right_sidebar_avatar_input %}
+  <!-- a form will go here with action="{% url 'accounts:avatar_add' %}" -->
   <a class="button">
     Upload Photo
     <input type="file">

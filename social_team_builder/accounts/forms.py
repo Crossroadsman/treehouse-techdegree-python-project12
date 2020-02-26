@@ -26,6 +26,13 @@ class UserProfileForm(forms.ModelForm):
 
 
 class AvatarForm(forms.ModelForm):
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['avatar'].widget.attrs.update({
+            'class': 'button',
+        })
 
     class Meta:
         model = UserProfile

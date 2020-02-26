@@ -25,6 +25,7 @@ def profile(request):
 
 
 def profile_edit(request):
+    logging.debug('view: profile_edit')
     user = get_object_or_404(User, pk=request.user.pk)
 
     logging.debug(f'Loaded user: {user} from request')
@@ -85,6 +86,7 @@ def profile_edit(request):
 
 
 def avatar_add(request):
+    logging.debug('view: avatar_add')
     user = get_object_or_404(User, pk=request.user.pk)
 
     logging.debug(f'Loaded user: {user} from request')
@@ -102,18 +104,35 @@ def avatar_add(request):
             request.FILES,
             instance=up_instance
         )
+        
+        logging.debug('form contents:')
+        logging.debug(request.POST)
+        logging.debug(request.FILES)
+        logging.debug("In FILES:")
+        logging.debug(f'avatar: {request.FILES["avatar"]}')
+
         if a_form.is_valid():
 
             logging.debug('form passed validation')
             
             logging.debug('saving form (commit=False)')
             profile = a_form.save(commit=False)
+
+            if len(request.FILES) < 1:
+                logging.debug("No file was uploaded")
+            else:
+                # This should be done automatically. Maybe not
+                # because we manually instantiated the field in
+                # the template?
+                logging.debug("Attaching image to profile")
+                profile.avatar = request.FILES['avatar']
+            
             logging.debug('linking user to profile')
             profile.user = user
 
             logging.debug(f'{profile.user}')
 
-            logging.debug('saving up form (commit=True)')
+            logging.debug('saving a form (commit=True)')
             profile.save()
             
             logging.debug('redirecting')
@@ -121,6 +140,7 @@ def avatar_add(request):
 
         else:
             # CONSIDER DELETING THIS BLOCK ONCE EVERYTHING WORKS
+            logging.debug('form failed validation')
             logging.debug(a_form.errors)
             return redirect(reverse('accounts:profile_edit'))
 

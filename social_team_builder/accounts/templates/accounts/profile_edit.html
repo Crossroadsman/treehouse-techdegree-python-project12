@@ -22,8 +22,8 @@
 
     {# if we have any hidden forms #}
     {% for hf in up_form.hidden_fields %}
-      {{ hidden_field.errors }}
-      {{ hidden_field }}
+      {{ hf.errors }}
+      {{ hf }}
     {% endfor %}
 
     {% for field in up_form.visible_fields %}
@@ -78,11 +78,33 @@
 {% endblock page_main_body %}
 
 {% block page_right_sidebar_avatar_input %}
-  <!-- a form will go here with action="{% url 'accounts:avatar_add' %}" -->
-  <a class="button">
-    Upload Photo
-    <input type="file">
-  </a>
+  <form id="aform"
+        method="POST" 
+        action="{% url 'accounts:avatar_add' %}"
+        enctype="multipart/form-data">
+    
+    {% csrf_token %}
+
+    {{ a_form.non_field_errors }}
+
+    {# if we have any hidden forms #}
+    {% for hf in a_form.hidden_fields %}
+      {{ hf.errors }}
+      {{ hf }}
+    {% endfor %}
+
+    <!-- extracted code goes here -->
+
+    <button class="button" type="submit">
+      Upload Photo
+      <input type="file" name="avatar" accept="image/*" id="id_avatar" onchange="form.submit()">
+    </button>
+
+    <!-- <a class="button">
+      Upload Photo
+      <input type="file" name="avatar" accept="image/*" id="id_avatar">
+    </a> -->
+  </form>
 {% endblock page_right_sidebar_avatar_input %}
 
 {% block page_right_sidebar %}
